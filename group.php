@@ -114,7 +114,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 <ul>
   <li><a class="active" href="./index.php">Home</a></li>
   <li><a href="./install.php">Pole Install</a></li>
-  <li><a href="./create_subdivision.php">Create Subdivision</a></li>
   <div class="topnav-right">
     <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>
   </div>
