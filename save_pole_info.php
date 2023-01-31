@@ -33,7 +33,7 @@ if(!$conn) {
 	echo "DBase connect failed";
 }
 
-$qstring = "INSERT INTO sub_light (groupname,poleid,gpsx,gpsy,ptype,pheight,bulbtype,report,rport_time,cust_resp,resp_time) VALUES (\"$groups\",\"$poleid\",$lat,$long,\"$poletype\",$poleheight,\"$bulb\",\"NA\",0,\"NA\",0)";
+$qstring = "INSERT INTO sub_light (groupname,poleid,gpsx,gpsy,ptype,pname,pheight,bulbtype,report,rport_time,cust_resp,resp_time) VALUES (\"$groups\",\"$poleid\",$lat,$long,\"$poletype\",\"$polename\",$poleheight,\"$bulb\",\"NA\",0,\"NA\",0)";
 echo "<br>$qstring <br>";
 $result = mysqli_query($conn, $qstring);
 if(!$result) {

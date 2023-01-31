@@ -31,15 +31,16 @@
                 $gpsx = $data['gpsx'];
                 $gpsy = $data['gpsy'];
                 $ptype = $data['ptype'];
+                $pname = $data['pname'];
                 $pheight = $data['pheight'];
                 $bulbtype = $data['bulbtype'];
                 
-                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype',$pheight,'$bulbtype');\n");                        
+                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype');\n");                        
             }
           ?>
           
         // Proses of making marker 
-        function addMarker(gpsx,gpsy,poleid,groupname,ptype,pheight,bulbtype) {
+        function addMarker(gpsx,gpsy,poleid,groupname,ptype,pname,pheight,bulbtype) {
             var location = new google.maps.LatLng(gpsx, gpsy);
             bounds.extend(location);
             var marker = new google.maps.Marker({
@@ -53,16 +54,17 @@
                 }
             });       
             map.fitBounds(bounds);
-	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pheight,bulbtype);
+	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype);
          }
         
         // Displays information on markers that are clicked
-        function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pheight,bulbtype) {
+        function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype) {
           google.maps.event.addListener(marker, 'click', function() {
 	    const submitstr = 
 		'<form method="get">' +
 		'Poleid:'+poleid+'<br>'+
-		'Ptype:'+ptype+' Pheight:'+pheight+' Bulb:'+bulbtype+'<br>' +
+		'Ptype:'+ptype+' Pname:'+pname+'<br>' +
+		'Pheight:'+pheight+' Bulb:'+bulbtype+'<br>' +
 		'Coord:'+gpsx+','+gpsy+'<br>'+
                 '<select name="myselect" id="myselect" onchange="this.form.submit()">' +
                 '<option value="">Select ...</option>' +
