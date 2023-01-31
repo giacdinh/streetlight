@@ -22,9 +22,12 @@ if(!$conn) {
 	echo "DBase connect failed";
 }
 
-$result = mysqli_query($conn, "SELECT groupname,poleid,gpsx,gpsy FROM `sub_light` where groupname='$subname'");
+$result = mysqli_query($conn, "SELECT groupname,poleid,gpsx,gpsy FROM `sub_light` where groupname='$subname' order by poleid");
 
 $all_property = array();  //declare an array for saving property
+$rowcnt = mysqli_num_rows($result);
+echo '<p style="font-size: 200%; color:black"><strong>This subdivision has '.$rowcnt.' lights</strong></p>';
+
 
 //showing property
 echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">';

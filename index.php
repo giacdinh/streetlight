@@ -45,7 +45,7 @@
                 map: map,
                 position: location,
                 label: {
-                    text: groupname+" with"+lightcnt+" poles",
+                    text: groupname,
                     color: 'white',
                     fontSize: "16px"
                 }
