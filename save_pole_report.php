@@ -8,7 +8,8 @@
 $poleid = $_GET['name'];
 $issue = $_GET['report'];
 $contact = $_GET['contact'];
-echo "PoleID: $poleid with $issue";
+  
+echo "PoleID: $poleid with $issue <br>";
 $now = time();
 //get database config information
     $json = file_get_contents('./backend.json');
@@ -24,8 +25,9 @@ if(!$conn) {
         die("Connection failed: " . mysqli_connect_error());
         echo "DBase connect failed";
 }
-
-$result = mysqli_query($conn, "UPDATE `sub_light` set report='$issue',rport_time=$now,cust_resp='$contact' where poleid = $poleid");
+$rquery = "UPDATE `sub_light` set report='$issue',rport_time=$now,cust_resp='$contact' where poleid=\"$poleid\"";
+echo $rquery;
+$result = mysqli_query($conn, $rquery);
 if(!$result) {
         echo "<div style='font-size:75px ;color:red'>DBase update failed.</div>";
         die("DBase insert failed: " . mysqli_query_error());

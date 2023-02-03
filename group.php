@@ -66,7 +66,7 @@
 		'Ptype:'+ptype+' Pname:'+pname+'<br>' +
 		'Pheight:'+pheight+' Bulb:'+bulbtype+'<br>' +
 		'Coord:'+gpsx+','+gpsy+'<br>'+
-                '<select name="myselect" id="myselect" onchange="this.form.submit()">' +
+                '<select name="issue" id="issue">' +
                 '<option value="">Select ...</option>' +
                 '<option value="Light out">Light out</option>' +
                 '<option value="Light flickering">Light flickering</option>' +
