@@ -74,9 +74,9 @@
                 '<option value="Pole down">Pole down</option>' +
                 '<option value="Pole down">Pole damage</option>' +
                 '<option value="Other">Other ...</option>' +
-                "</select> <br><br>" +
+                "</select> <br>" +
                 'Phone or email for after fixed update<br>' +
-                '<input type="text" name="cinfo" id="cinfo"/><br><br>' +
+                '<input type="text" name="cinfo" id="cinfo"/><br>' +
                 '<input type="button" id="ReportBtn" value="Submit"/> </form>';
             map.panTo(marker.getPosition());
             map.setZoom(22);
