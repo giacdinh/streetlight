@@ -72,7 +72,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 <body onload="initMap()">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="demo.css">
+<link rel="stylesheet" href="main.css">
 <div class="topnav" style="font-size:20px">
 <ul>
   <li><a class="active" href="./index.php">Home</a></li>
