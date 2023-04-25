@@ -21,7 +21,7 @@ if(!$conn) {
 	echo "DBase connect failed";
 }
 
-$result = mysqli_query($conn, "SELECT groupname,poleid,gpsx,gpsy,ptype,pheight,bulbtype,report,FROM_UNIXTIME(rport_time),cust_resp FROM `sub_light` where rport_time != 0");
+$result = mysqli_query($conn, "SELECT groupname,poleid,gpsx,gpsy,ptype,pheight,bulbtype,report,FROM_UNIXTIME(rport_time),cust_resp FROM `sub_light` where rport_time != 0 ORDER by rport_time DESC");
 
 $all_property = array();  //declare an array for saving property
 

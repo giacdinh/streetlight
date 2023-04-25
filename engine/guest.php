@@ -75,7 +75,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 <link rel="stylesheet" href="main.css">
 <div class="topnav" style="font-size:20px">
 <ul>
-<li><a>Guest View</a></li>
+<li><a style="color:red;font-size:30px;">Select/Click your destination subdivision/site </a></li>
   <div class="topnav-right">
     <li><a href="../logout.php">Logout</a></li>
     <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>

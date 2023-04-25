@@ -8,6 +8,7 @@
 $poleid = $_GET['poleid'];
 $issue = $_GET['poleissue'];
 $contact = $_GET['cinfo'];
+$subdiv = $_GET['groupname'];
   
 echo "PoleID: $poleid with $issue <br>";
 $now = time();
@@ -33,8 +34,42 @@ if(!$result) {
         die("DBase insert failed: " . mysqli_query_error());
 }
 echo "<div style='font-size:75px ;color:green'>Update pole issue report successed</div>";
+sendemail($issue,$contact,$poleid,$subdiv);
 
 $conn->close();
 
+function sendemail($issue,$contact,$poleid,$subdiv){
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    $from = "bacsonteam@bacson.tech";
+    // Screen production ID and send to different email for monitoring
+    // Remove when install after customer site
+    $to = "ghe_cu@yahoo.com";
+    $subject = "StreetLight Issue report";
+
+
+    // To send HTML mail, the Content-type header must be set
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    // Create email headers
+    $headers .= 'From: ' . $from . "\r\n" .
+        'Reply-To: ' . $from . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    $message = '<html><body>';
+    $message .= '<p style="color:#3498DB;font-size:18px;">Subdivision:' . $subdiv . '</p>';
+    $message .= '<p style="color:#3498DB;font-size:18px;">PoleID:' . $poleid . '</p>';
+    $message .= '<p style="color:#3498DB;font-size:18px;">Issue:' . $issue . '</p>';
+    $message .= '<p style="color:#3498DB;font-size:18px;">Contact:' . $contact. '</p>';
+    $message .= '</body></html>';
+
+    if (mail($to, $subject, $message, $headers)) {
+        //echo 'Your mail has been sent successfully.';
+        http_response_code(200);
+    } else {
+        //echo 'Unable to send email. Please try again.';
+        http_response_code(503);
+    }
+}
 
 ?>

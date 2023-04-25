@@ -54,11 +54,11 @@
                 }
             });       
             map.fitBounds(bounds);
-	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype);
+	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname);
          }
         
         // Displays information on markers that are clicked
-        function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype) {
+        function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname) {
           google.maps.event.addListener(marker, 'click', function() {
 	    const submitstr = 
 		'<form method="get">' +
@@ -82,17 +82,17 @@
             map.setZoom(22);
 	    infoWindow.setContent(submitstr);
             infoWindow.open(map, marker);
-            isServiceReport(infoWindow, poleid);
+            isServiceReport(infoWindow, poleid,groupname);
           });
 	}
-        function isServiceReport(infoWindow, poleid) {
+        function isServiceReport(infoWindow, poleid,groupname) {
             google.maps.event.addListener(infoWindow,'domready', function() {
                 $('#ReportBtn').on('click', function () {
 		    const option=document.getElementById("issue").value;
 		    const contact=document.getElementById("cinfo").value;
                     $.ajax({
                         type: "POST",
-                        url: "save_pole_report.php?name="+poleid+"&report="+option+"&contact="+contact,
+                        url: "save_pole_report.php?name="+poleid+"&report="+option+"&contact="+contact+"&group="+groupname,
                         success: function(){
                         }
                     });
@@ -116,6 +116,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 <ul>
   <li><a class="active" href="./guest.php">Home</a></li>
   <li><a style="color:blue;"><?php echo $_GET['group']; ?></a></li>
+  <li><a style="color:red;font-size:30px;"> Select/Click Light Pole location on map to report issue</a></li>
   <div class="topnav-right">
     <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>
   </div>
