@@ -75,7 +75,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 <link rel="stylesheet" href="main.css">
 <div class="topnav" style="font-size:20px">
 <ul>
-  <li><a class="active" href="./index.php">Home</a></li>
+  <li><a class="active" href="./main.php">Home</a></li>
   <li><a href="./create_subdivision.php">Create Subdivision</a></li>
   <li><a href="./report.php">Reports</a></li>
   <li><a>Subdivision Poles View
