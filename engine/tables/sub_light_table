@@ -1,0 +1,17 @@
+use u426042465_streetlight;
+create table sub_light (
+id   INTEGER  NOT NULL AUTO_INCREMENT,
+groupname   VARCHAR(30)  NOT NULL,
+poleid   VARCHAR(30)  NOT NULL,
+gpsx   DOUBLE  NOT NULL,
+gpsy   DOUBLE  NOT NULL,
+ptype   VARCHAR(30)  NOT NULL,
+pname   VARCHAR(30)  NOT NULL,
+pheight   INTEGER  NOT NULL,
+bulbtype   VARCHAR(30)  NOT NULL,
+report   VARCHAR(200)  NOT NULL,
+rport_time   BIGINT(20)  NOT NULL,
+cust_resp   VARCHAR(200)  NOT NULL,
+resp_time   BIGINT(20)  NOT NULL,
+PRIMARY KEY ( id )
+) ENGINE=INNODB;

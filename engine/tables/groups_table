@@ -1,0 +1,11 @@
+use u426042465_streetlight;
+create table groups_light (
+groupid INT NOT NULL AUTO_INCREMENT,
+groupname  VARCHAR(30)  NOT NULL,
+gpsx   DOUBLE  NOT NULL,
+gpsy   DOUBLE  NOT NULL,
+description   VARCHAR(30)  NOT NULL,
+lightcnt   INTEGER  NOT NULL,
+ctime   BIGINT  NOT NULL,
+PRIMARY KEY ( groupid )
+) ENGINE=INNODB;
