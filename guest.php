@@ -7,6 +7,19 @@
         height: 100%;
         width: 100%;
        }
+.header {
+  padding: 10px;
+  background: white;
+  color: #1A5276;
+  font-size: 40px;
+}
+.v1{
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 50px;
+}
+
 </style>
     <script>
         
@@ -73,15 +86,18 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="main.css">
+ <div class="header">
+            <a> <img style="width:100px;" src="/img/dukeone.svg"><span class="v1"></span> Street & Area Light Repair </a>
+          </div>
 <div class="topnav" style="font-size:20px">
 <ul>
-<li><a style="color:red;font-size:30px;">Select/Click your destination subdivision/site </a></li>
+<li><a >Locate your subdivision and select your light.</a></li>
   <div class="topnav-right">
     <li><a href="../logout.php">Logout</a></li>
     <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>
   </div>
 </ul>
     
-<div id="map" style="width:100%; height:800px"></div>
+<div id="map" style="width:100%; height:740px"></div>
 </body>
 </html>

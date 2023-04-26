@@ -7,6 +7,19 @@
         height: 100%;
         width: 100%;
        }
+.header {
+  padding: 10px;
+  background: white;
+  color: #1A5276;
+  font-size: 40px;
+}
+.v1{
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 50px;
+}
+
 </style>
     <script>
     var marker;
@@ -112,11 +125,15 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="main.css">
+<div class="header">
+    <a> <img style="width:100px;" src="/img/dukeone.svg"><span class="v1"></span> Street & Area Light Repair </a>
+</div>
+
 <div class="topnav" style="font-size:25px">
 <ul>
   <li><a class="active" href="./guest.php">Home</a></li>
   <li><a style="color:blue;"><?php echo $_GET['group']; ?></a></li>
-  <li><a style="color:red;font-size:30px;"> Select/Click Light Pole location on map to report issue</a></li>
+  <li><a > Select Light Pole location on map to report issue</a></li>
   <div class="topnav-right">
     <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>
   </div>
