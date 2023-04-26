@@ -7,41 +7,35 @@
 -->
 <style>
 body {
-  background-image: url('img/bg.jpg');
+  background-image: url('img/slbg.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
   background-color: transparent;
   background-position: center;
 }
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+  background: white;
+  color: #1A5276;
+  font-size: 40px;
+}
+.v1{
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 50px;
+}
 </style>
 	</head>
 	<body>
-		<br><br><br>
-		<div class="login">
-		  <div  style ="text-align:center;">
-			<br><br><br>
-			<h1 style="color:white;">Duke Energy One Street Light</h1>
-		  
-			<form action="authenticate.php" method="post">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<input type="submit" value="Login">
-			</form>
-			<br>
-		        <button onclick="window.location.href = 'engine/guest.php';">CUSTOMER REPORT TOOL</button> 
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<div class="links">
-			  <p style="color:white;">Powered by <img style="width:50px;" src="img/tmall.png"> Bac Son Technologies</p>
-			  <p style="color:white;">Version: v1.1</p>
-			</div>
-		  </div>
-		</div>
+	  <div class="header">
+	    <a> <img style="width:100px;" src="img/de_logo.png"><span class="v1"></span> Street & Area Light Repair </a> 
+	  </div> 
+	  <br><br><br><br><br><br><br><br> 
+	  <div  style ="text-align:center;">
+	    <button style="font-size:30px;" onclick="window.location.href = 'engine/guest.php';">Light or Pole Service needed</button> 
+	  </div>
 	</body>
 </html>
