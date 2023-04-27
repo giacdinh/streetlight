@@ -44,7 +44,7 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     $from = "bacsonteam@bacson.tech";
     // Screen production ID and send to different email for monitoring
     // Remove when install after customer site
-    $to = "ghe_cu@yahoo.com";
+    $to = "deoneflsl@duke-energy.com";
     $subject = "StreetLight Issue report";
 
 
