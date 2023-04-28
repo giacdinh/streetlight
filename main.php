@@ -96,7 +96,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
       </form></a></li>
   <div class="topnav-right">
     <li><a href="../logout.php">Logout</a></li>
-    <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>
+    <li><span title="deonflsl@duke-energy.com"> <a href="#">Contact</a><span></li>
   </div>
 </ul>
     

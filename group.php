@@ -118,7 +118,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
   <li><a href="./install.php">Pole Install</a></li>
   <li><a style="color:blue;"><?php echo $_GET['group']; ?></a></li>
   <div class="topnav-right">
-    <li><span title="407-416-1064&#013;bacsonteam@hostinger.com"> <a href="#">Contact</a><span></li>
+    <li><span title="deoneflsl@duke-energy.com"> <a href="#">Contact</a><span></li>
   </div>
 </ul>
     
