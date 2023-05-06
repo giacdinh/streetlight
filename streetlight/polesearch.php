@@ -10,8 +10,10 @@
 .header {
   background: white;
   color: #215787;  /* duke color */
-  font-size: 25px;
+  font-size: 27px;
   padding: 0;
+  font: Roboto;
+  font-weight: 300;
 }
 .v1{
     display: inline-block;
@@ -25,6 +27,7 @@
     margin: 0 10px;
     height: 50px;
 }
+
 
 </style>
     <script>
@@ -41,7 +44,11 @@
 
         // Retrieve data from database
         <?php
-	    $group = $_GET['group'];
+            $spole = $_GET['poleid'];
+            $squery = mysqli_query($con,"select groupname from sub_light where poleid = '$spole'");
+            while ($sdata = mysqli_fetch_array($squery))
+                $group = $sdata['groupname'];
+	
             $query = mysqli_query($con,"select * from sub_light where groupname = '$group'");
             while ($data = mysqli_fetch_array($query))
             {
@@ -53,39 +60,50 @@
                 $pname = $data['pname'];
                 $pheight = $data['pheight'];
                 $bulbtype = $data['bulbtype'];
+                $report = $data['rport_time'];
                 
-                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype');\n");                        
+                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype',$report);\n");                        
             }
           ?>
           
         // Proses of making marker 
-        function addMarker(gpsx,gpsy,poleid,groupname,ptype,pname,pheight,bulbtype) {
+        function addMarker(gpsx,gpsy,poleid,groupname,ptype,pname,pheight,bulbtype,report) {
             var location = new google.maps.LatLng(gpsx, gpsy);
             bounds.extend(location);
             var marker = new google.maps.Marker({
                 map: map,
                 position: location,
-		icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
+		icon: { url: "./img/pole1.png",
+      labelOrigin: new google.maps.Point(10, 40),
+      size: new google.maps.Size(32,32),
+      anchor: new google.maps.Point(16,32)
+
+		}, 
                 label: {
                     text: poleid, 
-                    color: 'black',
-                    fontSize: "16px"
+                    color: '#215787',
+		    fontWeight: "bold",
+                    fontSize: "16px",
                 }
             });       
             map.fitBounds(bounds);
-	    // Remove this function since only customer report use
-	    //bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype);
+	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report);
          }
         
         // Displays information on markers that are clicked
-        function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype) {
+        function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report) {
           google.maps.event.addListener(marker, 'click', function() {
+          if (report) {
+	    const submitstr = 'Pole#: '+poleid+'<br>Repair In Progress'; 
+            map.panTo(marker.getPosition());
+            map.setZoom(21);
+	    infoWindow.setContent(submitstr);
+            infoWindow.open(map, marker);
+            isServiceReport(infoWindow, poleid,groupname);
+          } else {
 	    const submitstr = 
 		'<form method="get">' +
-		'Poleid:'+poleid+'<br>'+
-		'Ptype:'+ptype+' Pname:'+pname+'<br>' +
-		'Pheight:'+pheight+' Bulb:'+bulbtype+'<br>' +
-		'Coord:'+gpsx+','+gpsy+'<br>'+
+		'Pole#: '+poleid+'<br>'+
                 '<select name="issue" id="issue">' +
                 '<option value="">Select ...</option>' +
                 '<option value="Light out">Light out</option>' +
@@ -93,26 +111,29 @@
                 '<option value="Light on all day">Light on all day</option>' +
                 '<option value="Pole down">Pole down</option>' +
                 '<option value="Pole down">Pole damage</option>' +
-                '<option value="Other">Other ...</option>' +
                 "</select> <br>" +
-                'Phone or email for after fixed update<br>' +
-                '<input type="text" name="cinfo" id="cinfo"/><br>' +
+                'Note<br>' +
+                '<input type="text" name="note" id="note"/><br>' +
+                'Phone or email <br>' +
+                '<input type="text" name="cinfo" id="cinfo" placeholder="required" required/><br>' +
                 '<input type="button" id="ReportBtn" value="Submit"/> </form>';
             map.panTo(marker.getPosition());
-            map.setZoom(22);
+            map.setZoom(21);
 	    infoWindow.setContent(submitstr);
             infoWindow.open(map, marker);
-            isServiceReport(infoWindow, poleid);
+            isServiceReport(infoWindow, poleid,groupname);
+          }
           });
 	}
-        function isServiceReport(infoWindow, poleid) {
+        function isServiceReport(infoWindow, poleid,groupname) {
             google.maps.event.addListener(infoWindow,'domready', function() {
                 $('#ReportBtn').on('click', function () {
 		    const option=document.getElementById("issue").value;
 		    const contact=document.getElementById("cinfo").value;
+		    const note=document.getElementById("note").value;
                     $.ajax({
                         type: "POST",
-                        url: "save_pole_report.php?name="+poleid+"&report="+option+"&contact="+contact,
+                        url: "save_pole_report.php?name="+poleid+"&report="+option+"&contact="+contact+"&group="+groupname+"&note="+note,
                         success: function(){
                         }
                     });
@@ -133,21 +154,28 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="main.css">
 <div class="header">
-   <!-- a href="page"><img style="width:30px;" src=/img/burger.png></a> -->
     <span class="v2"></span><img style="width:100px;" src="/img/dukeone.svg">
     <span class="v1"></span><font face="Roboto">Street & Area Light Repair
  </div>
+
 <div class="topnav" style="font-size:25px">
 <ul>
-  <li><a href="./install.php">Pole Install</a></li>
-  <li><a style="color:white;"><?php echo $_GET['group']; ?></a></li>
+  <li><a style="color:white;">
+        <?php
+            $spole = $_GET['poleid'];
+            $squery = mysqli_query($con,"select groupname from sub_light where poleid = '$spole'");
+            while ($sdata = mysqli_fetch_array($squery)) 
+                $group = $sdata['groupname'];
+           echo $group; ?>
+  </a></li>
+  <li><a > Select Light Pole location on map to report issue</a></li>
   <div class="topnav-right">
   <li><a class="active" href="./index.php">Home</a></li>
-    <li><a href="../logout.php">Logout</a></li>
-<li><a target="popup" onclick="window.open('', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')" href="sendMail.php">Contact</a></li>
+    <li><a href="../login.php">Login</a></li>
+    <li><a target="popup" onclick="window.open('', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')" href="sendMail.php">Contact</a></li>
   </div>
 </ul>
     
-<div id="map" style="width:100%; height:800px"></div>
+<div id="map" style="width:100%; height:740px"></div>
 </body>
 </html>

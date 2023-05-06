@@ -27,7 +27,7 @@ if(!$conn) {
         die("Connection failed: " . mysqli_connect_error());
         echo "DBase connect failed";
 }
-$rquery = "INSERT INTO pole_history (groupname,poleid,report,rport_time,cust_resp,cust_note,resp_time) VALUES ('$subdiv','$poleid','$issue',$now,'$contact','$note',0)";
+$rquery = "UPDATE `sub_light` set report='$issue',rport_time=$now,cust_resp='$contact' where poleid=\"$poleid\"";
 echo $rquery;
 $result = mysqli_query($conn, $rquery);
 if(!$result) {
@@ -45,8 +45,7 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     $from = "bacsonteam@bacson.tech";
     // Screen production ID and send to different email for monitoring
     // Remove when install after customer site
-    //$to = "deoneflsl@duke-energy.com";
-    $to = "ghecu@hotmail.com";
+    $to = "deoneflsl@duke-energy.com";
     $subject = "StreetLight Issue report";
 
 

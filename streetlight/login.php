@@ -28,21 +28,8 @@
     height: 50px;
 }
 </style>
-  <script>
-    function initMap() {
-      var mapProp= {
-        center:new google.maps.LatLng(28.694478, -81.747921),
-        zoom:7,
-      };
-      var map = new google.maps.Map(document.getElementById("map"),mapProp);
-    }
-  </script>
-
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgNwng6LIaE&callback=initMap">
-</script>
 </head>
-<body onload="initMap()">
+<body">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="main.css">
@@ -61,9 +48,24 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
   <li><a class="active" href="./index.php">Home</a></li>
 <li><a href="../login.php">Login</a></li>
 <li><a target="popup" onclick="window.open('', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')" href="sendMail.php">Contact</a></li>
+
 </div>
 </ul>
+<br><br>
+<div style ="text-align:center">
+        <form action="authenticate.php" method="post">
+                <label for="username">
+                    <i class="fas fa-user"></i> User:
+                </label>
+                <input style="font-size:22px;" type="text" name="username" id="username" required>
+                <label for="password">
+                    <i class="fas fa-lock"></i> Password:
+                </label>
+                <input style="font-size:22px;" type="password" name="password" id="password" required>
+                <input style="font-size:22px;" type="submit" value="Login" >
+            </form>
+</div>
+
     
-<div id="map" style="width:100%; height:740px"></div>
 </body>
 </html>

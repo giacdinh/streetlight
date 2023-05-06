@@ -5,11 +5,10 @@
     </body>
 </html>
 <?php
-$poleid = $_GET['name'];
-$issue = $_GET['report'];
-$contact = $_GET['contact'];
-$subdiv = $_GET['group'];
-$note = $_GET['note'];
+$poleid = $_GET['poleid'];
+$issue = $_GET['poleissue'];
+$contact = $_GET['cinfo'];
+$subdiv = $_GET['groupname'];
   
 echo "PoleID: $poleid with $issue <br>";
 $now = time();
@@ -27,7 +26,7 @@ if(!$conn) {
         die("Connection failed: " . mysqli_connect_error());
         echo "DBase connect failed";
 }
-$rquery = "INSERT INTO pole_history (groupname,poleid,report,rport_time,cust_resp,cust_note,resp_time) VALUES ('$subdiv','$poleid','$issue',$now,'$contact','$note',0)";
+$rquery = "UPDATE `sub_light` set report='$issue',rport_time=$now,cust_resp='$contact' where poleid=\"$poleid\"";
 echo $rquery;
 $result = mysqli_query($conn, $rquery);
 if(!$result) {
@@ -35,18 +34,17 @@ if(!$result) {
         die("DBase insert failed: " . mysqli_query_error());
 }
 echo "<div style='font-size:75px ;color:green'>Update pole issue report successed</div>";
-    sendemail($issue,$contact,$poleid,$subdiv);
+sendemail($issue,$contact,$poleid,$subdiv);
+
 $conn->close();
 
-//Send email
 function sendemail($issue,$contact,$poleid,$subdiv){
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
     $from = "bacsonteam@bacson.tech";
     // Screen production ID and send to different email for monitoring
     // Remove when install after customer site
-    //$to = "deoneflsl@duke-energy.com";
-    $to = "ghecu@hotmail.com";
+    $to = "deoneflsl@duke-energy.com";
     $subject = "StreetLight Issue report";
 
 
