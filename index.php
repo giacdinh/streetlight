@@ -1,3 +1,4 @@
+<!-- Version 1.0.2 -->
 <?php include "connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
