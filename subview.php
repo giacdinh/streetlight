@@ -30,7 +30,7 @@
     </head>
     <body>
 <div class="header">
-    <span class="v2"></span><img style="width:100px;" src="/img/dukeone.svg">
+    <span class="v2"></span><a href=https://p-micro.duke-energy.com/one/outdoor-lighting><img style="width:100px;" src="/img/dukeone.svg"></a>
     <span class="v1"></span><font face="Roboto">Street & Area Light Repair
  </div>
     </body>
