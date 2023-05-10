@@ -77,7 +77,6 @@
       labelOrigin: new google.maps.Point(10, 40),
       size: new google.maps.Size(32,32),
       anchor: new google.maps.Point(16,32)
-
 		}, 
                 label: {
                     text: poleid, 

@@ -1,4 +1,3 @@
-<!-- Version 1.0.3 -->
 <?php include "connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en">

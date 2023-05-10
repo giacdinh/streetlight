@@ -103,6 +103,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 <ul>
   <li><a href="./create_subdivision.php">Create Subdivision</a></li>
   <li><a href="./report.php">Reports</a></li>
+  <li><a href="./history.php">History</a></li>
   <li><a>
 	<form action="./subview.php" method="GET"> Subdivision Poles View
 	<select name="subselect" id="subselect" style="font-size:15px">

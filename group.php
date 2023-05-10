@@ -65,7 +65,11 @@
             var marker = new google.maps.Marker({
                 map: map,
                 position: location,
-		icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
+                icon: { url: "./img/pole1.png",
+      			labelOrigin: new google.maps.Point(10, 40),
+      			size: new google.maps.Size(32,32),
+      			anchor: new google.maps.Point(16,32)
+                },
                 label: {
                     text: poleid, 
                     color: 'black',
