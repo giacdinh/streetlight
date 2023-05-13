@@ -60,13 +60,13 @@ while ($property = mysqli_fetch_field($result)) {
 //    echo '<td><strong>' . strtoupper($property->name) . '</strong></td>';  //get field name for header
     array_push($all_property, $property->name);  //save those to array
 }
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . groupname . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . 'pole#' . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . issue . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . contact . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . notes . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . reporttime. '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . fixtime . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . groupname . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . 'pole#' . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . issue . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . contact . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . notes . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . reporttime. '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . fixtime . '</strong></td>';
 echo '</tr>'; //end tr tag
 
 //showing all data

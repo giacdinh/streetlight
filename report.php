@@ -62,15 +62,15 @@ while ($property = mysqli_fetch_field($result)) {
 //    echo '<td><strong>' . strtoupper($property->name) . '</strong></td>';  //get field name for header
     array_push($all_property, $property->name);  //save those to array
 }
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . select. '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . groupname . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . 'pole#' . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . gpsx . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . gpsy . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . issue . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . note . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . reporttime. '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . contact . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Select. '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Groupname . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . 'Pole#' . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Gpsx . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Gpsy . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Issue . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Note . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Reporttime. '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Contact . '</strong></td>';
 echo '</tr>'; //end tr tag
 
 //showing all data
