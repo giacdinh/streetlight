@@ -28,7 +28,7 @@
 <div class="header">
     <span class="v2"><a href=https://p-micro.duke-energy.com/one/outdoor-lighting></span><img style="width:100px;" src="/img/dukeone.svg"></a>
     <span class="v1"></span><font face="Roboto">Street & Area Light Repair
- </div>
+</div>
     </body>
 </html>
 <?php
@@ -59,14 +59,13 @@ echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4
 echo '<table class="data-table table table-striped table-bordered">
         <tr class="data-heading">';  //initialize table tag
 while ($property = mysqli_fetch_field($result)) {
-//    echo '<td><strong>' . strtoupper($property->name) . '</strong></td>';  //get field name for header
     array_push($all_property, $property->name);  //save those to array
 }
    echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Select. '</strong></td>';
    echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Groupname . '</strong></td>';
    echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . 'Pole#' . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Gpsx . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Gpsy . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . GPSx . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . GPSy . '</strong></td>';
    echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Issue . '</strong></td>';
    echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Note . '</strong></td>';
    echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Reporttime. '</strong></td>';

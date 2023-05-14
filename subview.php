@@ -68,13 +68,10 @@ while ($property = mysqli_fetch_field($result)) {
 //    echo '<td><strong>' . strtoupper($property->name) . '</strong></td>';  //get field name for header
     array_push($all_property, $property->name);  //save those to array
 }
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . groupname . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . poleid . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . gpsx . '</strong></td>';
-   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . gpsy . '</strong></td>';
-//   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . ptype . '</strong></td>';
-//   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . pheight . '</strong></td>';
-//   echo '<td style="color:white; text-align:center; background-color:#4CAF50"><strong>' . bulbtype . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . Groupname . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . 'Pole#' . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . GPSx . '</strong></td>';
+   echo '<td style="color:white; text-align:center; background-color:#215787"><strong>' . GPSy . '</strong></td>';
 echo '</tr>'; //end tr tag
 
 //showing all data

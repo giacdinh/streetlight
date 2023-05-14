@@ -72,7 +72,8 @@
                 },
                 label: {
                     text: poleid, 
-                    color: 'black',
+                    color: '#215787',
+                    fontWeight: "bold",
                     fontSize: "16px"
                 }
             });       

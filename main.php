@@ -65,9 +65,15 @@
             var marker = new google.maps.Marker({
                 map: map,
                 position: location,
+                icon: { url: "./img/pole1.png",
+                        labelOrigin: new google.maps.Point(10, 40),
+                        size: new google.maps.Size(32,32),
+                        anchor: new google.maps.Point(16,32)
+                },
                 label: {
                     text: groupname,
-                    color: 'black',
+                    color: '#215787',
+                    fontWeight: "bold",
                     fontSize: "16px"
                 }
             });       
