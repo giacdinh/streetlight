@@ -46,24 +46,30 @@
         <?php
             $spole = $_GET['poleid'];
             $squery = mysqli_query($con,"select groupname from sub_light where poleid = '$spole'");
-            while ($sdata = mysqli_fetch_array($squery))
-                $group = $sdata['groupname'];
+	    $rowcnt = mysqli_num_rows($squery);
+	    if($rowcnt == 0) {
+		    echo ("addMarker(0, 0,'There is no match for \"$spole\". Click to return home','N/A','N/A','N/A',0,'N/A',0);\n");
+	    }
+	    else {
+            	while ($sdata = mysqli_fetch_array($squery))
+                	$group = $sdata['groupname'];
 	
-            $query = mysqli_query($con,"select * from sub_light where groupname = '$group'");
-            while ($data = mysqli_fetch_array($query))
-            {
-                $groupname = $data['groupname'];
-                $poleid = $data['poleid'];
-                $gpsx = $data['gpsx'];
-                $gpsy = $data['gpsy'];
-                $ptype = $data['ptype'];
-                $pname = $data['pname'];
-                $pheight = $data['pheight'];
-                $bulbtype = $data['bulbtype'];
-                $report = $data['rport_time'];
+            	$query = mysqli_query($con,"select * from sub_light where groupname = '$group'");
+            	while ($data = mysqli_fetch_array($query))
+            	{
+                	$groupname = $data['groupname'];
+               	 	$poleid = $data['poleid'];
+                	$gpsx = $data['gpsx'];
+                	$gpsy = $data['gpsy'];
+                	$ptype = $data['ptype'];
+                	$pname = $data['pname'];
+                	$pheight = $data['pheight'];
+                	$bulbtype = $data['bulbtype'];
+                	$report = $data['rport_time'];
                 
-                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype',$report);\n");                        
-            }
+                	echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype',$report);\n");
+            	}
+	    }
           ?>
           
         // Proses of making marker 
@@ -86,9 +92,16 @@
                 }
             });       
             map.fitBounds(bounds);
-	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report);
+	    if(gpsx != 0 || gpsy != 0)
+	    	bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report);
+	    else
+		returntohomepage(marker);
          }
-        
+	function returntohomepage(marker) {
+	    google.maps.event.addListener(marker, 'click', function() {
+       		window.location.replace("https://de1fl.com");
+	    });
+	} 
         // Displays information on markers that are clicked
         function bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report) {
           google.maps.event.addListener(marker, 'click', function() {
