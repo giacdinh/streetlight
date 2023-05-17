@@ -156,13 +156,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
 
 <div class="topnav" style="font-size:25px">
 <ul>
-  <li><a style="color:white;">
-        <?php
-            $spole = $_GET['poleid'];
-            $squery = mysqli_query($con,"select groupname from sub_light where poleid = '$spole'");
-            while ($sdata = mysqli_fetch_array($squery)) 
-                $group = $sdata['groupname'];
-           echo $group; ?>
+  <li><a href="./install.php">Pole Install</a></li>
+  <li><a style="color:white;"><?php echo $_GET['group']; ?></a></li>
   </a></li>
   <li><a > Select Light Pole location on map to report issue</a></li>
   <div class="topnav-right">
