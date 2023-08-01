@@ -33,7 +33,7 @@
  </div>
 <link rel="stylesheet" href="main.css">
 <div class="topnav" style="font-size:22px;text-align:center;">
-<ul> <li> <a> Create Subdivision Group for Mobile device use only</a></li></ul></div>
+<ul> <li> <a> Scan Pole GPS for Mobile device use only</a></li></ul></div>
 
 <button type="default" class="btn btn-primary" style='font-size:50px' onclick="getLocation()">Get Pole GPS Coord</button>
 <form action="./save_pole_info.php" method="GET">
