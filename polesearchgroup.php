@@ -44,11 +44,7 @@
 
         // Retrieve data from database
         <?php
-            $spole = $_GET['poleid'];
-            $squery = mysqli_query($con,"select groupname from sub_light where poleid = '$spole'");
-            while ($sdata = mysqli_fetch_array($squery))
-                $group = $sdata['groupname'];
-	
+            $group = $_GET['group'];
             $query = mysqli_query($con,"select * from sub_light where groupname = '$group'");
             while ($data = mysqli_fetch_array($query))
             {
@@ -62,7 +58,7 @@
                 $bulbtype = $data['bulbtype'];
                 $report = $data['rport_time'];
                 
-                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype',$report);\n");                        
+                echo ("addMarker($gpsx, $gpsy,'$poleid','$groupname','$ptype','$pname',$pheight,'$bulbtype',$report);\n");
             }
           ?>
           
