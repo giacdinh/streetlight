@@ -27,7 +27,7 @@ if(!$conn) {
         die("Connection failed: " . mysqli_connect_error());
         echo "DBase connect failed";
 }
-$rquery = "UPDATE `sub_light` set report='$issue',rport_time=$now,cust_resp='$contact',notes='$note' where poleid=\"$poleid\"";
+$rquery = "UPDATE `sub_light` set report='$issue',rport_time=$now,cust_resp='$contact',notes='$note' where poleid='$poleid' AND groupname='$subdiv'";
 
 $result = mysqli_query($conn, $rquery);
 if(!$result) {
@@ -35,7 +35,8 @@ if(!$result) {
         die("DBase insert failed: " . mysqli_query_error());
 }
 echo "<div style='font-size:75px ;color:green'>Update pole issue report successed</div>";
-    sendemail($issue,$contact,$poleid,$subdiv);
+file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Entering send mail from save pole issue\n", FILE_APPEND | LOCK_EX);
+sendemail($issue,$contact,$poleid,$subdiv);
 $conn->close();
 
 //Send email
@@ -45,7 +46,7 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     $from = "bacsonteam@bacson.tech";
     // Screen production ID and send to different email for monitoring
     // Remove when install after customer site
-    $to = "deoneflsl@duke-energy.com";
+    $to = "gerald.rooks@duke-energy.com,ghecu@hotmail.com";
     $subject = "StreetLight Issue report";
 
 
@@ -67,9 +68,11 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     if (mail($to, $subject, $message, $headers)) {
         //echo 'Your mail has been sent successfully.';
         http_response_code(200);
+	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Sending mail passed\n", FILE_APPEND | LOCK_EX);
     } else {
         //echo 'Unable to send email. Please try again.';
         http_response_code(503);
+	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Sending mail failed\n", FILE_APPEND | LOCK_EX);
     }
 }
 

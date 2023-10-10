@@ -5,6 +5,8 @@
     </body>
 </html>
 <?php
+/* ************************ NOTE **********************************/
+/* This save pole issue use QR code page */
 $poleid = $_GET['poleid'];
 $issue = $_GET['poleissue'];
 $contact = $_GET['cinfo'];
@@ -34,6 +36,7 @@ if(!$result) {
         die("DBase insert failed: " . mysqli_query_error());
 }
 echo "<div style='font-size:75px ;color:green'>Update pole issue report successed</div>";
+file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Entering send mail from save pole issue\n", FILE_APPEND | LOCK_EX);
 sendemail($issue,$contact,$poleid,$subdiv);
 
 $conn->close();
@@ -44,7 +47,7 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     $from = "bacsonteam@bacson.tech";
     // Screen production ID and send to different email for monitoring
     // Remove when install after customer site
-    $to = "deoneflsl@duke-energy.com";
+    $to = "gerald.rooks@duke-energy.com,ghecu@hotmail.com";
     $subject = "StreetLight Issue report";
 
 
@@ -66,8 +69,10 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     if (mail($to, $subject, $message, $headers)) {
         //echo 'Your mail has been sent successfully.';
         http_response_code(200);
+	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Sending mail passed\n", FILE_APPEND | LOCK_EX);
     } else {
         //echo 'Unable to send email. Please try again.';
+	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Sending mail failed\n", FILE_APPEND | LOCK_EX);
         http_response_code(503);
     }
 }

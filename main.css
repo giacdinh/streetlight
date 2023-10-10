@@ -101,9 +101,10 @@ html {
 .topnav-right {
   float: right;
 }
-hr.solid {
+/*hr.solid {
   border-top: 2px solid #79B1ED;
 }
+*/
 .center {
   display: block;
   margin-left: auto;

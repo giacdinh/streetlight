@@ -228,7 +228,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
             $squery = mysqli_query($con,"select groupname from sub_light where poleid = '$spole'");
 	    $rowcnt = mysqli_num_rows($squery);
 	    if($rowcnt > 1) {
-	        echo 'Select Subdivsion with pole issue'; 
+	        echo 'Select Subdivision with pole issue'; 
 	    }
 	    else {
                 while ($sdata = mysqli_fetch_array($squery)) { 

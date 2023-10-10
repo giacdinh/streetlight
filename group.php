@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 <style>
+/* ************************ NOTE **********************************/
+/* This group report pole issue use by Logged users which call save_pole_report */
     #map {
         height: 100%;
         width: 100%;

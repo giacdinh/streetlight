@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 <style>
+/* ************************ NOTE **********************************/
+/* This polesearchgroup report pole issue use by common users (None Login) which call save_pole_report */
     #map {
         height: 100%;
         width: 100%;
@@ -45,7 +47,8 @@
         // Retrieve data from database
         <?php
             $group = $_GET['group'];
-            $query = mysqli_query($con,"select * from sub_light where groupname = '$group'");
+            $poleid = $_GET['poleid'];
+            $query = mysqli_query($con,"select * from sub_light where groupname ='$group' AND poleid='$poleid'");
             while ($data = mysqli_fetch_array($query))
             {
                 $groupname = $data['groupname'];
@@ -82,7 +85,9 @@
                     fontSize: "16px",
                 }
             });       
-            map.fitBounds(bounds);
+            //map.fitBounds(bounds);
+	    map.setZoom(18);
+	    map.panTo(marker.position);
 	    bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report);
          }
         
@@ -92,7 +97,7 @@
           if (report) {
 	    const submitstr = 'Pole#: '+poleid+'<br>Repair In Progress'; 
             map.panTo(marker.getPosition());
-            map.setZoom(21);
+	    map.setZoom(21);
 	    infoWindow.setContent(submitstr);
             infoWindow.open(map, marker);
             isServiceReport(infoWindow, poleid,groupname);
