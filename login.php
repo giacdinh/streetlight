@@ -39,14 +39,13 @@
  </div>
 <div class="topnav" style="font-size:22px">
 <ul> <li> <a>
-    <form action="polesearch.php" method="get"> <label style="color:white">Enter exact or near by Pole#: </label>
+    <form action="polesearch.php" method="get"> <label style="color:white">Enter exact or nearby Pole#: </label>
       <input type="text" name="poleid" size=20 />
       <input type="submit" value="Search Pole" />
     </form>
 </a> </li>
 <div class="topnav-right">
   <li><a class="active" href="./index.php">Home</a></li>
-<li><a href="../login.php">Login</a></li>
 <li><a target="popup" onclick="window.open('', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')" href="sendMail.php">Contact</a></li>
 
 </div>

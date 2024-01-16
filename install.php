@@ -65,6 +65,7 @@
             <option value='Metal'>Metal</option>
             <option value='Concrete'>Concrete</option>
             <option value='Fiberglass'>Fiberglass</option>
+            <option value='Wood'>Wood</option>
         </select>
   	<br>
         <label for='latitude' class='col-md-4 col-form-label text-md-right' style='font-size:50px'>Pole Height:</label>
@@ -74,6 +75,7 @@
             <option value='20'>20ft</option>
             <option value='25'>25ft</option>
             <option value='30'>30ft</option>
+            <option value='30'>40ft</option>
         </select>
   	<br>
         <label for='latitude' class='col-md-4 col-form-label text-md-right' style='font-size:50px'>Light Globe:</label>

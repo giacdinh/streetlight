@@ -241,7 +241,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-rj-7eYIXR5Tb9xA5YjyTgN
   </a></li>
   <div class="topnav-right">
   <li><a class="active" href="./index.php">Home</a></li>
-    <li><a href="../login.php">Login</a></li>
     <li><a target="popup" onclick="window.open('', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')" href="sendMail.php">Contact</a></li>
   </div>
 </ul>
