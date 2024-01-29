@@ -2,6 +2,7 @@
     <head>
     </head>
     <body>
+	<meta http-equiv="refresh" content="2;URL='report.php'" />
     </body>
 </html>
 

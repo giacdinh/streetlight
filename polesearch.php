@@ -70,7 +70,7 @@
             	while ($sdata = mysqli_fetch_array($squery))
                 	$group = $sdata['groupname'];
 	
-            	$query = mysqli_query($con,"select * from sub_light where groupname = '$group'");
+            	$query = mysqli_query($con,"select * from sub_light where groupname = '$group' AND poleid='$spole'");
             	while ($data = mysqli_fetch_array($query))
             	{
                 	$groupname = $data['groupname'];
@@ -96,9 +96,9 @@
                 map: map,
                 position: location,
 		icon: { url: "./img/pole1.png",
-      labelOrigin: new google.maps.Point(10, 40),
-      size: new google.maps.Size(32,32),
-      anchor: new google.maps.Point(16,32)
+      		labelOrigin: new google.maps.Point(10, 40),
+      		size: new google.maps.Size(32,32),
+      		anchor: new google.maps.Point(16,32)
 		}, 
                 label: {
                     text: poleid, 
@@ -107,7 +107,9 @@
                     fontSize: "16px",
                 }
             });       
-            map.fitBounds(bounds);
+            //map.fitBounds(bounds);
+            map.setZoom(18);
+            map.panTo(marker.position);
 	    if(gpsx != 0 || gpsy != 0)
 	    	bindInfoWindow(marker, map, infoWindow, gpsx,gpsy,poleid,ptype,pname,pheight,bulbtype,groupname,report);
 	    else

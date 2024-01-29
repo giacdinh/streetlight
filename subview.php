@@ -53,7 +53,7 @@ if(!$conn) {
 	echo "DBase connect failed";
 }
 
-$result = mysqli_query($conn, "SELECT groupname,poleid,gpsx,gpsy FROM `sub_light` where groupname='$subname' order by poleid");
+$result = mysqli_query($conn, "SELECT groupname,poleid,gpsx,gpsy FROM `sub_light` where groupname='$subname' order by CHAR_LENGTH(poleid),poleid");
 
 $all_property = array();  //declare an array for saving property
 $rowcnt = mysqli_num_rows($result);
