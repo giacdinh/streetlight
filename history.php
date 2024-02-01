@@ -48,7 +48,7 @@ if(!$conn) {
 	echo "DBase connect failed";
 }
 
-$result = mysqli_query($conn, "SELECT groupname,poleid,report,cust_resp,cust_note,FROM_UNIXTIME(rport_time),FROM_UNIXTIME(resp_time) FROM `pole_history` ORDER by poleid DESC");
+$result = mysqli_query($conn, "SELECT groupname,poleid,report,cust_resp,cust_note,FROM_UNIXTIME(rport_time),FROM_UNIXTIME(resp_time) FROM `pole_history` ORDER by rport_time DESC");
 
 $all_property = array();  //declare an array for saving property
 
