@@ -44,10 +44,11 @@ $conn->close();
 function sendemail($issue,$contact,$poleid,$subdiv){
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
-    $from = "bacsonteam@bacson.tech";
+    //$from = "bacsonteam@bacson.tech";
+    $from = "ghecu@hotmail.com";
     // Screen production ID and send to different email for monitoring
     // Remove when install after customer site
-    $to = "gerald.rooks@duke-energy.com,ghecu@hotmail.com";
+    $to = "ghecu@hotmail.com";
     $subject = "StreetLight Issue report";
 
 
@@ -69,10 +70,10 @@ function sendemail($issue,$contact,$poleid,$subdiv){
     if (mail($to, $subject, $message, $headers)) {
         //echo 'Your mail has been sent successfully.';
         http_response_code(200);
-	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Sending mail passed\n", FILE_APPEND | LOCK_EX);
+	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Poleissue: Sending mail passed\n", FILE_APPEND | LOCK_EX);
     } else {
         //echo 'Unable to send email. Please try again.';
-	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Sending mail failed\n", FILE_APPEND | LOCK_EX);
+	file_put_contents("Log.txt", date('H:i:s m/d/Y',$now)."Poleissue: Sending mail failed\n", FILE_APPEND | LOCK_EX);
         http_response_code(503);
     }
 }
