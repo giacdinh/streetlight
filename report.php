@@ -26,8 +26,8 @@
 
     <body>
 <div class="header">
-    <span class="v2"><a href=https://p-micro.duke-energy.com/one/outdoor-lighting></span><img style="width:100px;" src="/img/dukeone.svg"></a>
-    <span class="v1"></span><font face="Roboto">Street & Area Light Repair
+<!--    <span class="v2"></span><a href=https://p-micro.duke-energy.com/one/outdoor-lighting><img style="width:100px;" src="/img/dukeone.svg"></a>-->
+    <span class="v1"></span> DE ONE Light and Pole Status
 </div>
     </body>
 </html>
